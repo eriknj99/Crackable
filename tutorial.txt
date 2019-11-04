@@ -1,0 +1,52 @@
+    _____   ____________  _____ ____________   ________    __  ______ 
+   /  _/ | / / ____/ __ \/ ___// ____/ ____/  / ____/ /   / / / / __ )
+   / //  |/ / /_  / / / /\__ \/ __/ / /      / /   / /   / / / / __  |
+ _/ // /|  / __/ / /_/ /___/ / /___/ /___   / /___/ /___/ /_/ / /_/ / 
+/___/_/ |_/_/    \____//____/_____/\____/   \____/_____/\____/_____/  
+
+
+Step 1. Download crackable.sh
+	- Boot Kali Linux VM and login.
+	- Open Terminal
+	- Type: 'git clone https://github.com/eriknj99/Crackable.git'
+		- This will download crackable.sh
+	- Type 'cd Crackable' to enter the newly downloaded directory
+	- Type 'sh ./crackable.sh dep' to download required dependencies
+		- Select 'No' when prompted about updates (Unless you have a few minutes)
+	- Type 'sh ./crackable.sh help' to display all available commands 
+	- Type 'systemctl start ssh' to startup the ssh server on your machine 
+
+Step 2. Level 0
+	-crackable.sh allows you to create vulnerable local users to practice cracking passwords.
+	-Type 'sh ./crackable.sh l0' to begin level 0
+		-This will create a local user 'level0' on your machine. level0 has password '123'
+	-Connect to level0 by ssh with the command 'ssh level0@127.0.0.1', type 'yes' if prompted, then enter level0's password.
+	-Type 'exit' to return to your root shell when ready.
+	
+Step 3. Level 1
+	-Type 'sh ./crackable.sh l1' to begin level 1
+		-This will create a local user 'level1' on your machine. level1 has a randomly generated 3 digit password (000-999).
+	-Now lets try to crack level1's password.
+		-The number of possible passwords is relatively small (n=1000) so it is feasible to try them all (Brute force).
+		-Read the manual for 'hydra' and try to figure out how to crack level1's password.
+
+	-When you have level1's password, try logging in with ssh: 'ssh level1@127.0.0.1'
+	-Once again type 'exit' to return to root shell.
+
+Step 4. Level 2
+	-Type 'sh ./crackable.sh l2' to begin level 2
+		-The will create a local user 'level2'. level2's password will be randomly selected from wordlist.txt.
+			-wordlist.txt contains the top 100 most common passwords, if you see your password in wordlist.txt CHANGE IT NOW!
+		-The possible passwords are between 4 and 10 characters long with lowercase letters and digits.
+			- Thats ~3656158400000000 possible passwords!
+		-Try brute forcing level2's password with same method used in level1 and you  will see why this is a problem.
+	-Luckily there is a solution: 'ncrack', ncrack lets you try every password in a file rather than trying every combination of characters.	
+		-Read the manual for 'ncrack' and try to figure out how to crack level2's password.
+	-When you have level2's password try logging in with ssh: 'ssh level2@127.0.0.1'
+	  
+Step 5. Clean up
+	-Run 'sh ./crackable.sh clean' to remove users level0, level1, and level2 if found.
+	-You can run crackable.sh l* at any time to change the password to something else and try cracking again.
+ 
+	
+                                                                      
