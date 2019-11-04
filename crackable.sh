@@ -7,7 +7,7 @@ if [ "$1" = "dep" ]; then
   		* ) echo "";;
 	esac
 
-	for dep in neofetch figlet cmatrix
+	for dep in figlet 
 	do
 		echo -n Checking for dependency: $dep...
 		if ! type "$dep" > /dev/null; then	
@@ -67,7 +67,7 @@ if [ "$1" = "l1" ]; then
 	fi
 		
 	rand="$(shuf -i 100-999 -n1)"
-	echo -n "Setting level1s password to a random 3 digit number ($rand)..."
+	echo -n "Setting level1s password to a random 3 digit number ..."
 	#Set the password to $rand
 	echo level1:$rand | chpasswd
 
@@ -86,7 +86,7 @@ if [ "$1" = "l2" ]; then
 	fi
 		
 	rand="$(shuf -n 1 wordlist.txt)"
-	echo -n "Setting level2s password to a random word in the wordlist ($rand)..."
+	echo -n "Setting level2s password to a random word in the wordlist..."
 	#Set the password to $rand
 	echo level2:$rand | chpasswd
 	echo "done."
