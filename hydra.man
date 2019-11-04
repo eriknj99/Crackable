@@ -1,0 +1,32 @@
+    __              __          
+   / /_  __  ______/ /________ _
+  / __ \/ / / / __  / ___/ __ `/
+ / / / / /_/ / /_/ / /  / /_/ / 
+/_/ /_/\__, /\__,_/_/   \__,_/  
+      /____/                    
+
+This is not a complete manual for hydra see 'hydra --help' or 'man hydra' for more info. 
+
+Usage: hydra <arguments> <server> <service>
+
+server : The IP address or URL of the server you are attacking.(127.0.0.1, google.com, ...)
+
+service: The protocal that you are attacking. (SSH, FTP, HTTP(S), MySQL...)
+
+arguments:
+
+-l LOGIN : The username you are attacking.
+-p PASS : Attempt to login with password PASS.
+-x MIN:MAX:CHARSET : Password bruteforce generation.
+	MIN : Minimum password length.
+	MAX : Maximum password length.
+	CHARSET : Characters to use in password generation.
+		a : lowercase letters
+		A : UPPERCASE letters
+		1 : digits 0-9
+		* : Specify all other characters explicitly
+	See 'hydra -x -h' for more details
+-V Verbose mode (Show attempts)
+
+
+

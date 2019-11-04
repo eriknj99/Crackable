@@ -1,0 +1,27 @@
+                               __  
+   ____  ______________ ______/ /__
+  / __ \/ ___/ ___/ __ `/ ___/ //_/
+ / / / / /__/ /  / /_/ / /__/ ,<   
+/_/ /_/\___/_/   \__,_/\___/_/|_|  
+
+This is not a complete manual for ncrack see 'ncrack --help' or 'man ncrack' for more info.
+
+Usage: ncrack <arguments> <protocol>://<target>
+
+Target: The IP address or URL of your target. (127.0.0.1, google.com)
+Protocol: The protocol you are attacking. (SSH, FTP, TELNET, HTTP(S)...)
+	
+	Examples: SSH://127.0.0.1
+		  HTTPS://www.google.com
+			.
+			.
+			.
+Arguments:
+
+-U FILE : Username file.
+--user USER : Login as USER
+-P FILE : Password file.
+--pass PASS : Attempt password PASS
+-v : verbose mode
+-d : debug mode (-d10 will show all password attempts)
+                                   

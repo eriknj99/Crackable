@@ -93,11 +93,13 @@ if [ "$1" = "l2" ]; then
 fi
 
 if [ "$1" = "c1" ]; then
+	echo "hydra -V -l level1 -x 3:3:1 127.0.0.1 ssh"
 	hydra -V -l level1 -x 3:3:1 127.0.0.1 ssh
 fi
 
 if [ "$1" = "c2" ]; then
-	ncrack -v --user level2 -P wordlist.txt ssh://127.0.0.1
+	echo "ncrack -v --user level2 -P wordlist.txt ssh://127.0.0.1"
+	ncrack -v -d10 --user level2 -P wordlist.txt ssh://127.0.0.1
 fi
 
 if [ "$1" = "help" ]; then
