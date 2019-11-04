@@ -1,0 +1,28 @@
+    _____   ____________  _____ ____________   ________    __  ______ 
+   /  _/ | / / ____/ __ \/ ___// ____/ ____/  / ____/ /   / / / / __ )
+   / //  |/ / /_  / / / /\__ \/ __/ / /      / /   / /   / / / / __  |
+ _/ // /|  / __/ / /_/ /___/ / /___/ /___   / /___/ /___/ /_/ / /_/ / 
+/___/_/ |_/_/    \____//____/_____/\____/   \____/_____/\____/_____/  
+
+
+Step 1. Download crackable.sh
+	- Boot Kali Linux VM and login.
+	- Open Terminal
+	- Type: 'git clone https://github.com/eriknj99/Crackable.git'
+		- This will download crackable.sh
+	- Type 'cd Crackable' to enter the newly downloaded directory
+	- Type 'sh ./crackable.sh dep' to download required dependencies
+		- Select 'No' when prompted about updates (Unless you have a few minutes)
+	- Type 'sh ./crackable.sh help' to display available commands 
+	- Type 'systemctl start ssh' to startup the ssh server on your machine 
+
+Step 2. Level 0
+	-crackable.sh allows you to create vulnerable local users to practice cracking passwords.
+	-Type 'sh ./crackable.sh l0' to begin level 0
+		-This will create a local user 'level0' on your machine. level0 has password '123'
+	-Connect to level0 by ssh with the command 'ssh level0@127.0.0.1', type 'yes' if prompted, then enter level0's password.
+	-
+	
+Step 3. Level 1
+	
+                                                                      
