@@ -95,22 +95,22 @@ if [ "$1" = "C1" ]; then
 fi
 
 if [ "$1" = "C2" ]; then
-	echo "ncrack -v --user level2 -P wordlist.txt ssh://127.0.0.1"
-	ncrack -v -d10 --user level2 -P wordlist.txt ssh://127.0.0.1
+	echo "hydra -l level2 -P wordlist.txt 127.0.0.1 ssh"
+	hydra -l level2 -P wordlist.txt 127.0.0.1 ssh
 fi
 
 if [ "$1" = "help" ] || [ "$1" = "" ]; then
 	figlet CRACKABLE -f slant
 	
 	echo "			-----help-----
-	      Usage: sh ./crackable.sh <ARG1>
+	      Usage: sh ./crackable.sh ARGUMENT
 
-	      l0    : Generate user level0, password:123
-	      l1    : Generate user level1, password:3 random digits 
-	      l2    : Generate user level2, password:randomly selected from wordlist.txt
+	      L0    : Generate user level0, password:123
+	      L1    : Generate user level1, password:3 random digits 
+	      L2    : Generate user level2, password:randomly selected from wordlist.txt
 	      
-	      c1    : Auto cracks level1
-	      c1    : Auto cracks level2
+	      C1    : Auto cracks level1
+	      C2    : Auto cracks level2
 	      
 	      dep   : Install required dependencies if not present
 	      clean : Remove users level0, level1, and level2 if present
