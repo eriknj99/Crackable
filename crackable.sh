@@ -1,12 +1,9 @@
 #Check Dependencies
+
 if [ "$1" = "dep" ]; then
 	
-	read -p "Would you like to update before checking dependencies (y/n)?" choice
-		case "$choice" in 
-  		y|Y ) sudo apt update && sudo apt upgrade -y;;
-  		* ) echo "";;
-	esac
 
+	sudo apt update 
 	for dep in figlet 
 	do
 		echo -n Checking for dependency: $dep...
@@ -35,8 +32,8 @@ if [ "$1" = "clean" ]; then
 
 fi
 
-if [ "$1" = "l0" ]; then
-	
+if [ "$1" = "L0" ]; then
+	sudo systemctl start ssh	
 	#If the user does not exist creat them.
 	exists="$(grep -c '^level0:' /etc/passwd)"
 	if [ "$exists" = "0" ]; then
@@ -54,7 +51,7 @@ if [ "$1" = "l0" ]; then
 
 fi
 
-if [ "$1" = "l1" ]; then
+if [ "$1" = "L1" ]; then
 	
 	#If the user does not exist creat them.
 	exists="$(grep -c '^level1:' /etc/passwd)"
@@ -74,7 +71,7 @@ if [ "$1" = "l1" ]; then
 	echo "done."
 fi
 
-if [ "$1" = "l2" ]; then	
+if [ "$1" = "L2" ]; then	
 	#If the user does not exist creat them.
 	exists="$(grep -c '^level2:' /etc/passwd)"
 	if [ "$exists" = "0" ]; then
@@ -92,17 +89,17 @@ if [ "$1" = "l2" ]; then
 	echo "done."
 fi
 
-if [ "$1" = "c1" ]; then
+if [ "$1" = "C1" ]; then
 	echo "hydra -V -l level1 -x 3:3:1 127.0.0.1 ssh"
 	hydra -V -l level1 -x 3:3:1 127.0.0.1 ssh
 fi
 
-if [ "$1" = "c2" ]; then
+if [ "$1" = "C2" ]; then
 	echo "ncrack -v --user level2 -P wordlist.txt ssh://127.0.0.1"
 	ncrack -v -d10 --user level2 -P wordlist.txt ssh://127.0.0.1
 fi
 
-if [ "$1" = "help" ]; then
+if [ "$1" = "help" ] || [ "$1" = "" ]; then
 	figlet CRACKABLE -f slant
 	
 	echo "			-----help-----
@@ -123,6 +120,3 @@ if [ "$1" = "help" ]; then
 	echo "CRACKABLE v0.0.1 Erik Olsen 2019"
 fi
 
-if [ "$1" = "" ]; then
-	echo No argument given, type sh ./crackable.sh help for all arguments
-fi
